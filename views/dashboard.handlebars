@@ -1,1 +1,9 @@
-<h1>This is your profile</h1>
+<h1>Welcome {{User.name}}!! </h1>
+
+<a href="/views/newreview.handlebars">Write new review</a>
+
+<section class="flex-row justify-center">
+    {{#each reviews as |review|}}
+    {{> review-details review}}
+    {{/each}}
+  </section>
