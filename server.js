@@ -5,7 +5,7 @@ const passport = require("passport");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
 const sequelize = require("./config/connection.js");
-const routes = require('./controllers');
+const routes = require('./controllers/index-routes')
 
 const app = express();
 
