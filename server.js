@@ -4,7 +4,7 @@ const path = require("path");
 const passport = require("passport");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
-const sequelize = require("./config/connections");
+const sequelize = require("./config/connection.js");
 const routes = require('./controllers');
 
 const app = express();
@@ -34,7 +34,7 @@ async function startServer() {
   try {
     await sequelize.authenticate();
     console.log("Database connection has been established successfully.");
-    app.listen(port, () => {
+    app.listen(PORT, () => {
       console.log(`Server is running on port ${port}`);
     });
   } catch (err) {
