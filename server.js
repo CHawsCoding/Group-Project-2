@@ -26,7 +26,7 @@ app.set("view engine", "handlebars");
 
 app.get('/', (req, res) => {
     //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
-    res.render('main', {layout : 'login'});
+    res.render('homepage', {layout : 'main'});
     });
 // Handle invalid routes
 app.use((req, res) => {
