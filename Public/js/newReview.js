@@ -5,10 +5,10 @@ const newFormHandler = async (event) => {
     const artist = document.querySelector('#artist-content').value.trim();
     const content = document.querySelector('#review-content').value.trim();
   
-    if (songTitle && artist && content) {
-      const response = await fetch(`/api/review/`, {
+    if (title && artist && content) {
+      const response = await fetch(`/reviews/`, {
         method: 'POST',
-        body: JSON.stringify({ songTitle, artist, content }),
+        body: JSON.stringify({ title, artist, content }),
         headers: {
           'Content-Type': 'application/json',
         },
