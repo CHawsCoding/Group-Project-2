@@ -30,12 +30,8 @@ Review.init(
         key: 'id',
       },
     },
-    rating_id: {
+    rating: {
       type: DataTypes.INTEGER,
-      references: {
-        model: 'rating',
-        key: 'id',
-      },
     },
     song_id: {
         type: DataTypes.INTEGER,
