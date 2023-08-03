@@ -4,17 +4,34 @@ const newFormHandler = async (event) => {
     const title = document.querySelector('#song-title-content').value.trim();
     const artist = document.querySelector('#artist-content').value.trim();
     const content = document.querySelector('#review-content').value.trim();
+    const rating = document.querySelector('#rating-content').value.trim();
   
-    if (title && artist && content) {
-      const response = await fetch(`/reviews/`, {
+    if (title && artist && content && rating) {
+      const response = await fetch(`/songs/`, {
         method: 'POST',
-        body: JSON.stringify({ title, artist, content }),
+        body: JSON.stringify({ title, artist }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+      });
+
+      const response2 = await fetch(`/reviews/`, {
+        method: 'POST',
+        body: JSON.stringify({ title, content }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
+
+      const response3 = await fetch(`/ratings/`, {
+        method: 'POST',
+        body: JSON.stringify({ rating }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+      });
   
-      if (response.ok) {
+      if (response.ok && response2.ok && response3.ok) {
         document.location.replace('/dashboard');
       } else {
         alert('Failed to create review');
