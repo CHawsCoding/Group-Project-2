@@ -1,6 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+console.log("1");
+
 class Song extends Model {}
 
 Song.init(
@@ -30,9 +32,13 @@ Song.init(
 
 //gets average rating for a song
 Song.prototype.averageRating = async function () {
-  const reviews = await this.getReviews();
-  const ratings = await Promise.all(reviews.map((review) => Rating.findByPk(review.rating_id)));
-  const sumOfRatings = ratings.reduce((acc, rating) => acc + rating.rating, 0);
+  const Review = require('./review');
+  console.log(this.id);
+  const reviews = await Review.findAll({where: {song_id : this.id}})
+  const ratings = reviews.map((review) => review.rating);
+  const sumOfRatings = ratings.reduce((acc, rating) => acc + rating, 0);
+  console.log(ratings);
+  console.log(sumOfRatings);
   return sumOfRatings / ratings.length;
 };
 
