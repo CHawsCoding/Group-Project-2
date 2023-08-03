@@ -28,11 +28,6 @@ Song.init(
   }
 );
 
-Song.hasMany(Review, {
-  foreignKey: 'song_id',
-  onDelete: 'CASCADE',
-});
-
 //gets average rating for a song
 Song.prototype.averageRating = async function () {
   const reviews = await this.getReviews();
