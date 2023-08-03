@@ -1,1 +1,6 @@
-<h1>This is Homepage</h1>
+
+<section class="flex-row justify-center">
+    {{#each reviews as |review|}}
+    {{> review-details review}}
+    {{/each}}
+  </section>

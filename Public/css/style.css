@@ -4,3 +4,41 @@ nav {
     display: flex;
     justify-content: space-between;
 }
+
+nav ul{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    padding: 30px 60px;
+}
+
+nav li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.link:hover{
+    text-decoration: none;
+}
+
+
+.logo {
+    text-decoration: none;
+    color: white;
+}
+
+.logo:hover{
+    text-decoration: none;
+}
+
+#newreview{
+    padding: 30px 60px;
+}
