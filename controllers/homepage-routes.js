@@ -25,4 +25,12 @@ router.get('/', async (req, res) => {
     }
   });
 
+router.get('/newReview', async (req, res) => {
+    try {
+        res.render('newreview');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
