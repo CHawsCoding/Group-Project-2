@@ -1,18 +1,17 @@
-const loginForm = document.getElementById("login-form");
+const loginForm = document.getElementById('login-form');
 
 async function loginUser(event) {
   event.preventDefault();
 
   const formData = new FormData(loginForm);
-  const email = formData.get("email");
-  const password = formData.get("password");
+  const email = formData.get('email');
+  const password = formData.get('password');
 
   try {
-    
-    const response = await fetch("/api/users/login", {
-      method: "POST",
+    const response = await fetch('/controllers/user-routes.js', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email, password }),
     });
@@ -20,18 +19,19 @@ async function loginUser(event) {
     if (response.ok) {
       const data = await response.json();
       
-      window.location.href = "/dashboard";
+      window.location.href = '/dashboard';
     } else {
       const errorData = await response.json();
       
-      console.log("Login failed:", errorData.message);
+      console.log('Login failed:', errorData.message);
     }
   } catch (error) {
-    console.error("An error occurred during login:", error);
+    
+    console.error('An error occurred during login:', error);
   }
 }
 
-loginForm.addEventListener("submit", loginUser);
+loginForm.addEventListener('submit', loginUser);
 
 async function signupFormHandler(event) {
   event.preventDefault();
