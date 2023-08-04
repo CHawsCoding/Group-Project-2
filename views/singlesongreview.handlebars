@@ -1,1 +1,15 @@
-<h1>single song review here</h1>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="/Public/assets/image.eps" alt="Placeholder image">
+  <div class="card-body">
+    <h3 class="card-text">{{song.title}}</h3>
+  </div>
+</div>
+
+<section class="flex-row justify-center">
+    {{#each reviews as |review|}}
+    {{> review-details review}}
+    {{/each}}
+</section>
+
+<a href="/views/newreview.handlebars">Write new review</a>
+
