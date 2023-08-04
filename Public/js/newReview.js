@@ -17,21 +17,13 @@ const newFormHandler = async (event) => {
 
       const response2 = await fetch(`/reviews/`, {
         method: 'POST',
-        body: JSON.stringify({ title, content }),
+        body: JSON.stringify({ title, content, rating }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
-      const response3 = await fetch(`/ratings/`, {
-        method: 'POST',
-        body: JSON.stringify({ rating }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-      });
   
-      if (response.ok && response2.ok && response3.ok) {
+      if (response.ok && response2.ok) {
         document.location.replace('/dashboard');
       } else {
         alert('Failed to create review');
