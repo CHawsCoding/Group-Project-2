@@ -1,19 +1,27 @@
 <h2 class="card-header">Edit Post</h2>
-    <form class="card-body edit-review-form">
-        <div class="form-row">
-        <label for="review-title" class="form-label">Title</label>
-        <input name="review-title" type="text" value="{{title}}" class="form-input form-control"/>
-        </div>
+<form class="card-body edit-review-form">
+  <div class="form-row">
+    <label for="review-title" class="form-label">Title</label>
+    <input
+      name="review-title"
+      type="text"
+      value="{{title}}"
+      class="form-input form-control"
+    />
+  </div>
 
-        <div class="form-row">
-        <label class="form-label" for="content">Content</label>
-        <input name="content" type="text" value="{{content}}" class="form-input form-control"/>
-        </div>
-        <button type="submit" class="btn">Update Review</button>
-        <button type="button" class="delete-review-btn btn">Delete Review</button>
-    </form>
-
-
+  <div class="form-row">
+    <label class="form-label" for="content">Content</label>
+    <input
+      name="content"
+      type="text"
+      value="{{content}}"
+      class="form-input form-control"
+    />
+  </div>
+  <button type="submit" class="btn">Update Review</button>
+  <button type="button" class="delete-review-btn btn">Delete Review</button>
+</form>
 
 <script src="/js/edit-review.js"></script>
 <script src="/js/delete-review.js"></script>
