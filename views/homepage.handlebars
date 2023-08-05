@@ -1,8 +1,14 @@
 
-<section>
+<div class="jumbotron">
+  <h1 class="display-4">Hello, Music Lovers!</h1>
+  <p class="lead">Share your thoughts and discover new songs in one place</p>
+  <p>Your taste matters here</p>
+  <a class="btn btn-primary btn-lg" href="/newreview" role="button">Add your review</a>
+</div>
+    <div class="cardholder col-lg-10 col-sm-12">
     {{#if reviews.length}}
         {{#each reviews as |review|}}
         {{> reviewcard review}}
         {{/each}}
     {{/if}}
-</section>
+    </div>

@@ -1,3 +1,6 @@
+body{
+    background-color: #fafafa;
+}
 nav {
     background-color: #FE2800;
     padding: 30px 60px;
@@ -9,7 +12,7 @@ nav ul{
     text-decoration: none;
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     justify-items: center;
     padding: 30px 60px;
 }
@@ -41,4 +44,23 @@ nav li {
 
 #newreview{
     padding: 30px 60px;
+}
+
+.module {
+    background-color: white;
+}
+
+.card {
+    margin: 20px;
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: top;
+    flex-grow: 1;
+}
+
+.cardholder {
+    background-color: white;
+    margin: auto;
+    padding: 10px;
+    
 }
