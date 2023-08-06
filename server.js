@@ -9,6 +9,8 @@ const sequelize = require("./config/connection.js");
 const routes = require('./controllers/index-routes');
 const uuid = require("uuid");
 const sessionSecret = uuid.v4();
+const userRoutes = require('./controllers/user-routes');
+
 
 const app = express();
 
@@ -36,6 +38,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/user', userRoutes);
 app.use(routes);
 
 app.engine(
