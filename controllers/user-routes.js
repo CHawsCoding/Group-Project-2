@@ -20,6 +20,7 @@ router.post("/signup", async (req, res) => {
 });
 
 router.post("/login", (req, res, next) => {
+  console.log("Login endpoint hit");
   passport.authenticate("local", (err, user, info) => {
     if (err) {
       return res.status(500).json({ message: "Internal Server Error" });
