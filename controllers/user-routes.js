@@ -27,6 +27,12 @@ router.post("/login", (req, res, next) => {
     if (!user) {
       return res.status(401).json({ message: "Incorrect email or password" });
     }
+    const userData = User.findOne({ where: { email: req.body.email } });
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      });
 
     req.login(user, (err) => {
       if (err) {
@@ -39,7 +45,7 @@ router.post("/login", (req, res, next) => {
 });
 
 // Logout route
-router.post("/logout", (req, res) => {
+router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();

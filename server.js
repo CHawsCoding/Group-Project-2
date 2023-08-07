@@ -12,6 +12,7 @@ const sessionSecret = uuid.v4();
 const userRoutes = require('./controllers/user-routes');
 const helpers = require('./utils/helpers');
 const reviewRoutes = require('./controllers/review-routes.js');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 const app = express();
@@ -25,16 +26,24 @@ if (!process.env.SESSION_SECRET) {
 
 require("./config/passport")(passport);
 
-app.use(
-  session({
-    secret: "your_session_secret_here",
-    resave: false,
-    saveUninitialized: true,
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 30 * 60 * 1000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
   })
-);
+};
+
+app.use(session(sess));
 
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
