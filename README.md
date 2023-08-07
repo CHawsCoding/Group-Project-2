@@ -7,9 +7,10 @@ A platform for music enthusiasts to share reviews on their favorite songs. Users
 2. [Technologies Used](#technologies-used)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Sources](#sources)
+5. [Deployed](#deployed)
+6. [Contributing](#contributing)
+7. [License](#license)
+8. [Sources](#sources)
 
 
 ## Features
@@ -33,13 +34,13 @@ A platform for music enthusiasts to share reviews on their favorite songs. Users
 1. **Clone the Repository:**
 
    \```bash
-   git clone https://github.com/yourusername/music-review-platform.git
+   git clone https://github.com/CHawsCoding/Song-Scope
    \```
 
 2. **Navigate to the Directory:**
 
    \```bash
-   cd music-review-platform
+   cd song-scope
    \```
 
 3. **Install Dependencies:**
@@ -66,15 +67,28 @@ A platform for music enthusiasts to share reviews on their favorite songs. Users
 2. **Add a New Review:** Navigate to the "Add a New Review" page and enter the song title, artist, rating, and your review.
 3. **Manage Reviews:** Visit the dashboard to view and manage your reviews.
 
+## Deployed
+
+You can visit our deployed version of the application here:
+
+![screenshot]()
+
 ## Contributing
 
-Not considering outside contributions to the project at this time. Will update this section with guidelines if that chnages. 
+Not considering outside contributions to the project at this time. Will update this section with guidelines if that changes. 
 
 ## License
 
 **None.**
 
 ## Sources
+
+Thank you to all contributers to this project: 
+
+@CHawsCoding
+@Aleenabrink93
+@DanielDiazLo
+@jacobhargraves
 
 
 
