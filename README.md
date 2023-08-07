@@ -1,55 +1,80 @@
-# SongScope
+# Song Scope
 
-## Description
-
-A Node.js application that allows users to create an account and login and then view songs and write reviews on those songs. The application is deployed on heroku. many technologies were used including: MySQL, Psaasport, Express, Bcrypt
+A platform for music enthusiasts to share reviews on their favorite songs. Users can rate songs, write reviews, and engage with a community of fellow music lovers.
 
 ## Table of Contents
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Sources](#sources)
 
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Features](#features)
-  - [Technologies](#technologies)
-  - [Configuration](#configuration)
-  - [Deployed](#deployed)
-  - [License](#license)
-  - [Contributing](#contributing)
-  - [Acknowledgments](#acknowledgments)
-
-## Installation
-
-Provide instructions on how to install and set up the project locally. Include any prerequisites and step-by-step installation procedures.
-
-## Usage
-
-Explain how to use the application. Include any usage examples or screenshots to help users understand the workflow.
 
 ## Features
 
-List the main features and functionalities of the application. Mention what makes your project unique and stand out.
+- **User Authentication:** Register, log in, and maintain user sessions.
+- **Review Songs:** Add new reviews for songs, including title, artist, content, and a 1-10 rating.
+- **Dashboard:** View all reviews and manage personal reviews in the user dashboard.
 
-## Technologies
+## Technologies Used
 
-List the technologies, libraries, and frameworks used in the project. Include versions if relevant.
+- **Node.js:** Backend server.
+- **Express.js:** Web application framework.
+- **Sequelize:** Database ORM.
+- **Handlebars:** Templating engine for dynamic views.
+- **Bootstrap:** Styling the user interface.
+- **Passport:** User Authentication
+- **Mysql2** MySQL client for Node.js, providing fast database connections.
 
-## Configuration
+## Installation
 
-Explain any configuration steps required for the application to function correctly. This might include setting environment variables, configuring the database, etc.
+1. **Clone the Repository:**
 
-## Deployed
+   \```bash
+   git clone https://github.com/yourusername/music-review-platform.git
+   \```
 
-Visit the deployed application here:
+2. **Navigate to the Directory:**
 
-## License
+   \```bash
+   cd music-review-platform
+   \```
 
-None.
+3. **Install Dependencies:**
+
+   \```bash
+   npm install
+   \```
+
+4. **Set Up Environment Variables:**
+   - Create a `.env` file in the root directory.
+   - Add your database and other configuration variables.
+
+5. **Run the Application:**
+
+   \```bash
+   npm start
+   \```
+
+   The application should now be running at [http://localhost:3001](http://localhost:3001).
+
+## Usage
+
+1. **Register or Log In:** Start by registering or logging in to access the full features.
+2. **Add a New Review:** Navigate to the "Add a New Review" page and enter the song title, artist, rating, and your review.
+3. **Manage Reviews:** Visit the dashboard to view and manage your reviews.
 
 ## Contributing
 
-Explain how others can contribute to the project. Include guidelines for submitting issues, feature requests, or pull requests.
+Not considering outside contributions to the project at this time. Will update this section with guidelines if that chnages. 
+
+## License
+
+**None.**
+
+## Sources
 
 
-## Acknowledgments
-
-Mention any individuals, libraries, or resources that have inspired or contributed to the project.
 
