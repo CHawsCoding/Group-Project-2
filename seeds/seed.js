@@ -24,7 +24,7 @@ const seedDatabase = async () => {
   for (const review of reviewData) {
     await Review.create({
       ...review,
-      user_id: 1});
+    });
   }
 
   for (const comment of commentData) {
