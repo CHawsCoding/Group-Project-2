@@ -19,11 +19,28 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  
+  // Find the most recent song_id created
+  async function findMostRecentSong() {
+    try {
+      const mostRecentSong = await Song.findOne({
+        order: [['id', 'DESC']],
+      });
+      
+      return mostRecentSong.id;
+    } catch (error) {
+      console.error('Error finding most recent item:', error);
+      throw error;
+    }
+  }
+
+  const mostRecentSongId = await findMostRecentSong(); // Await the promise
+
   try {
     const newReview = await Review.create({
       ...req.body,
       user_id: req.session.user_id, // Add user ID from session
-      song_id : 1,
+      song_id : mostRecentSongId,
     });
     res.status(200).json(newReview);
   } catch (err) {
