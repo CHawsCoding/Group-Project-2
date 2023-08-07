@@ -10,6 +10,7 @@ const routes = require('./controllers/index-routes');
 const uuid = require("uuid");
 const sessionSecret = uuid.v4();
 const userRoutes = require('./controllers/user-routes');
+const helpers = require('./utils/helpers');
 
 
 const app = express();
@@ -43,7 +44,7 @@ app.use(routes);
 
 app.engine(
   "handlebars",
-  require("express-handlebars")({ defaultLayout: "main" })
+  require("express-handlebars")({ defaultLayout: "main", helpers: helpers })
 );
 app.set("view engine", "handlebars");
 

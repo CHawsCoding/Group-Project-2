@@ -2,9 +2,8 @@
     <div class=“dashboard-review”>
        <h2><a class=“link” href="../singlesongreview.handlebars">{{review_title}}</a></h2>
         <div>
-        <h4>{{review_title}}</h4>
         <p>{{content}}</p>
-        <p>Posted by <span>{{user.username}}</span> on {{ date_created}}</p>
+        <p>Posted by <span>{{user.username}}</span> on {{format_time date_created}}</p>
         </div>
     </div>
 </div>
