@@ -1,30 +1,30 @@
 [
   {
-    "title": "Awesome Song!",
+    "review_title": "Awesome Song!",
     "content": "I absolutely love this song! It's so catchy and has a great melody.",
     "rating" : 1,
     "song_id": 1
   },
   {
-    "title": "Timeless Classic",
+    "review_title": "Timeless Classic",
     "content": "Bohemian Rhapsody is a masterpiece! Queen's vocals and the unique structure make it an all-time favorite.",
     "rating" : 2,
     "song_id": 1
   },
   {
-    "title": "Emotional and Touching",
+    "review_title": "Emotional and Touching",
     "content": "Someone Like You by Adele never fails to bring tears to my eyes. Such a powerful song!",
     "rating" : 3,
     "song_id": 1
   },
   {
-    "title": "Inspirational Anthem",
+    "review_title": "Inspirational Anthem",
     "content": "Imagine by John Lennon carries a beautiful message of peace and unity. It's a timeless anthem for humanity.",
     "rating" : 4,
     "song_id": 1
   },
   {
-    "title": "Groovy Classic",
+    "review_title": "Groovy Classic",
     "content": "Billie Jean by Michael Jackson is a dance-floor classic that never gets old. MJ's moves and vocals are unmatched!",
     "rating" : 5,
     "song_id": 1

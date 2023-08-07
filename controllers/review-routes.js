@@ -7,7 +7,7 @@ const ensureAuthenticated = (req, res, next) => {
 };
 
 // Get all reviews
-router.get("/reviews", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const reviewData = await Review.findAll({
       include: [{ model: User }, { model: Song }],
@@ -18,11 +18,12 @@ router.get("/reviews", async (req, res) => {
   }
 });
 
-router.post("/review", ensureAuthenticated, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newReview = await Review.create({
       ...req.body,
-      user_id: req.user.id, // Add user ID from session
+      user_id: req.session.user_id, // Add user ID from session
+      song_id : 1,
     });
     res.status(200).json(newReview);
   } catch (err) {
@@ -30,7 +31,7 @@ router.post("/review", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.put("/review/:id", ensureAuthenticated, async (req, res) => {
+router.put("/:id", ensureAuthenticated, async (req, res) => {
   try {
     const updatedReview = await Review.update(req.body, {
       where: { id: req.params.id, user_id: req.user.id }, // Add user ID check
@@ -41,7 +42,7 @@ router.put("/review/:id", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.delete("/review/:id", ensureAuthenticated, async (req, res) => {
+router.delete("/:id", ensureAuthenticated, async (req, res) => {
   try {
     const deletedReview = await Review.destroy({
       where: { id: req.params.id, user_id: req.user.id }, // Add user ID check
