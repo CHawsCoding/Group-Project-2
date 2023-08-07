@@ -19,17 +19,16 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  
   // Find the most recent song_id created
   async function findMostRecentSong() {
     try {
       const mostRecentSong = await Song.findOne({
-        order: [['id', 'DESC']],
+        order: [["id", "DESC"]],
       });
-      
+
       return mostRecentSong.id;
     } catch (error) {
-      console.error('Error finding most recent item:', error);
+      console.error("Error finding most recent item:", error);
       throw error;
     }
   }
@@ -40,7 +39,7 @@ router.post("/", async (req, res) => {
     const newReview = await Review.create({
       ...req.body,
       user_id: req.session.user_id, // Add user ID from session
-      song_id : mostRecentSongId,
+      song_id: mostRecentSongId,
     });
     res.status(200).json(newReview);
   } catch (err) {
@@ -56,6 +55,24 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
     res.status(200).json(updatedReview);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.get("/editreview/:id", ensureAuthenticated, async (req, res) => {
+  try {
+    const reviewData = await Review.findByPk(req.params.id, {
+      include: [{ model: User }, { model: Song }],
+    });
+
+    if (!reviewData) {
+      res.status(404).json({ message: "No review found with this id!" });
+      return;
+    }
+
+    const review = reviewData.get({ plain: true });
+    res.render("editreview", { review });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
