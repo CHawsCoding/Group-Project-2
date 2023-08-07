@@ -1,9 +1,11 @@
-<div>
-    <div class=“dashboard-review”>
-       <h2><a class=“link” href="../singlesongreview.handlebars">{{review_title}}</a></h2>
-        <div>
-        <p>{{content}}</p>
-        <p>Posted by <span>{{user.username}}</span> on {{format_time date_created}}</p>
-        </div>
-    </div>
+
+<div class="card text-white bg-dark" style="width: 18rem;">
+  <img class="card-img-top" src="/assets/placeholder.jpg" alt="placeholder image">
+  <div class="card-body">
+    <h4 class="card-title">{{song.title}}</h4> <p>by {{song.artist}}</p>
+    <h5 class="card-title">{{review_title}}</h5>
+    <p class="card-text">{{content}}</p>
+    <p class="card-text">Rating: {{rating}}/10</p>
+    <a href="/editreview" class="btn btn-primary">Edit/Delete</a>
+  </div>
 </div>
