@@ -3,10 +3,10 @@ const { Review, User, Song } = require("../models");
 
 const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
-  res.redirect("/login"); // Redirects user to the login page if not authenticated
+  res.redirect("/login"); 
 };
 
-// Get all reviews
+
 router.get("/", async (req, res) => {
   try {
     const reviewData = await Review.findAll({
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  // Find the most recent song_id created
+  
   async function findMostRecentSong() {
     try {
       const mostRecentSong = await Song.findOne({
@@ -33,12 +33,12 @@ router.post("/", async (req, res) => {
     }
   }
 
-  const mostRecentSongId = await findMostRecentSong(); // Await the promise
+  const mostRecentSongId = await findMostRecentSong(); 
 
   try {
     const newReview = await Review.create({
       ...req.body,
-      user_id: req.session.user_id, // Add user ID from session
+      user_id: req.session.user_id, 
       song_id: mostRecentSongId,
     });
     res.status(200).json(newReview);
@@ -50,7 +50,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", ensureAuthenticated, async (req, res) => {
   try {
     const updatedReview = await Review.update(req.body, {
-      where: { id: req.params.id, user_id: req.user.id }, // Add user ID check
+      where: { id: req.params.id, user_id: req.user.id }, 
     });
     res.status(200).json(updatedReview);
   } catch (err) {
@@ -60,19 +60,43 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
 
 router.get("/editreview/:id", ensureAuthenticated, async (req, res) => {
   try {
-    const reviewData = await Review.findByPk(req.params.id, {
+    const review = await Review.findByPk(req.params.id, {
       include: [{ model: User }, { model: Song }],
     });
 
-    if (!reviewData) {
-      res.status(404).json({ message: "No review found with this id!" });
-      return;
+    if (!review) {
+      return res.status(404).send("Review not found");
     }
 
-    const review = reviewData.get({ plain: true });
-    res.render("editreview", { review });
+    
+    res.render("editreview", { review: review.get() });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.put("/editreview/:id", ensureAuthenticated, async (req, res) => {
+  try {
+    const { title, content } = req.body;
+    const { id } = req.params;
+
+    const updatedReview = await Review.update(
+      { review_title: title, content: content },
+      {
+        where: { id, user_id: req.user.id },
+      }
+    );
+
+    if (updatedReview[0] === 0) {
+      return res.status(404).json({
+        message:
+          "Review not found or you do not have permission to edit this review.",
+      });
+    }
+
+    res.status(200).json(updatedReview);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
