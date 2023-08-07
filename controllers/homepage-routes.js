@@ -10,6 +10,9 @@ router.get('/', async (req, res) => {
             model: User,
             attributes: ['username'],
           },
+          {
+            model: Song,
+          }
         ],
       });
   
