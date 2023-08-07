@@ -20,7 +20,6 @@ router.post("/signup", async (req, res) => {
 });
 
 router.post("/login", (req, res, next) => {
-  console.log("Login endpoint hit");
   passport.authenticate("local", (err, user, info) => {
     if (err) {
       return res.status(500).json({ message: "Internal Server Error" });
@@ -33,7 +32,8 @@ router.post("/login", (req, res, next) => {
       if (err) {
         return res.status(500).json({ message: "Internal Server Error" });
       }
-      return res.json({ user: user, message: "You are now logged in!" });
+      req.session.user_id = user.id;
+      return res.redirect('/dashboard');
     });
   })(req, res, next);
 });
