@@ -71,7 +71,7 @@ A platform for music enthusiasts to share reviews on their favorite songs. Users
 
 You can visit our deployed version of the application here:
 
-![screenshot]()
+![screenshot](./Public/assets/Screen%20Shot%202023-08-07%20at%205.28.01%20PM.png)
 
 ## Contributing
 
