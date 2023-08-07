@@ -11,6 +11,7 @@ const uuid = require("uuid");
 const sessionSecret = uuid.v4();
 const userRoutes = require('./controllers/user-routes');
 const helpers = require('./utils/helpers');
+const reviewRoutes = require('./controllers/review-routes.js');
 
 
 const app = express();
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/user', userRoutes);
 app.use(routes);
+app.use('/review', reviewRoutes);
 
 app.engine(
   "handlebars",
