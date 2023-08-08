@@ -70,12 +70,8 @@ app.use((req, res) => {
 
 async function startServer() {
   try {
-    await sequelize.sync({ force: false });
-
-    console.log("All models were synchronized successfully.");
-
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+    sequelize.sync({ force: false }).then(() => {
+      app.listen(PORT, () => console.log('Now listening'));
     });
   } catch (err) {
     console.error("Unable to synchronize models to the database:", err);
