@@ -90,5 +90,8 @@ Thank you to all contributers to this project:
 @DanielDiazLo
 @jacobhargraves
 
+Other Sources:
+
+Passport documentation was used to help set up authentication. We used the documentation for the local strategy to help set up our parameters - that documentation can be found here: https://github.com/jaredhanson/passport-local
 
 
