@@ -75,7 +75,7 @@ router.get("/editreview/:id", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.put("/editreview/:id", ensureAuthenticated, async (req, res) => {
+router.put("/editreview/:id", async (req, res) => {
   try {
     const { title, content } = req.body;
     const { id } = req.params;
